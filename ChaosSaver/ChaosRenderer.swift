@@ -10,7 +10,7 @@ import Foundation
 
 class ChaosRenderer {
     //clearing color
-    static let backgroundColor = PixelData(a: 10, r: 50, g: 50, b: 50)
+    static let backgroundColor = PixelData(a: 63, r: 50, g: 50, b: 50)
     
     //size of frame buffer
     let width:Int!
@@ -33,15 +33,17 @@ class ChaosRenderer {
         self.frameBuffer = [PixelData](repeating: ChaosRenderer.backgroundColor, count: width * height)
     }
     
-    func drawPoint(_ x:Double, _ y:Double, _ color:PixelData) {
-        if x < Double(Int.max) && x > Double(Int.min) && y < Double(Int.max) && y > Double(Int.min) {
-            let x = Int(x * 0.5) + width/2
-            let y = Int(y * 0.5) + height/2
+    func drawPoint(_ x:Double, _ y:Double, _ color:PixelData) -> (Bool) {
+        if x * 250 < Double(Int.max) && x * 250 > Double(Int.min) && y * 250 < Double(Int.max) && y * 250 > Double(Int.min) {
+            let x = Int(x * 250) + width/2
+            let y = Int(y * 250) + height/2
             
-            if x > 0 && Int(x) < width && y > 0 && Int(y) < height {
+            if x > 0 && x < width && y > 0 && y < height {
                 frameBuffer[y * width + x] = color
+                return true
             }
         }
+        return false
     }
     
     func render(_ cgContext:CGContext, _ rect:CGRect) {

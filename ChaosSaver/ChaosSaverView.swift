@@ -13,7 +13,7 @@ final class ChaosSaverView: ScreenSaverView {
     var params:[Double]!
     var renderer:ChaosRenderer?
 
-    var t:Double = -9.0
+    var t:Double = -3.0
     var timeDirection:Double = 1
     
     override func startAnimation() {
@@ -27,13 +27,16 @@ final class ChaosSaverView: ScreenSaverView {
     override func animateOneFrame() {
         super.animateOneFrame()
         
-        if t > 9.0 || t < -9.0 {
-            timeDirection *= -1.0
+        if t > 3.0 {
+            t = -3.0
+            params = generateParams()
         }
         
         for _ in 0..<100 { //steps per frame
             var x = t
             var y = t
+            
+            var wasOnScreen = false
             
             for _ in 0..<600 { //iterations
                 let xx = x * x
@@ -67,10 +70,14 @@ final class ChaosSaverView: ScreenSaverView {
                 x = nx
                 y = ny
                 
-                renderer?.drawPoint(x, y, ChaosRenderer.PixelData(a: 255, r: 255, g: 255, b: 255))
+                renderer!.drawPoint(x, y, ChaosRenderer.PixelData(a: 255, r: 255, g: 255, b: 255)) //wasOnScreen = wasOnScreen || 
             }
             
-            t += 1e-3 * timeDirection
+//            if !wasOnScreen {
+//                t += 0.001 * timeDirection
+//            } else {
+                t += 3e-4 * timeDirection
+            //}
         }
         
         //set needsDisplay to true to do drawing in draw()
@@ -86,6 +93,11 @@ final class ChaosSaverView: ScreenSaverView {
         }
         
         renderer?.render(cgContext, rect)
+        
+        NSColor.white.setFill()
+        //NSMakeRect(0, 1050, 1920, 30).fill()
+        let timeString = "\(t)" as NSString
+        //timeString.draw(at: NSPoint(x: 20, y: 1060), withAttributes: nil)
     }
     
     override init?(frame: NSRect, isPreview: Bool) {
