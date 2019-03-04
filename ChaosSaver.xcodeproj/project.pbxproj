@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		492B7895222CF660009CAB11 /* ChaosSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B86A1222CE524008AEA9F /* ChaosSaverView.swift */; };
+		492B7897222D0290009CAB11 /* ChaosRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492B7896222D0290009CAB11 /* ChaosRenderer.swift */; };
+		492B7898222D0638009CAB11 /* ChaosRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492B7896222D0290009CAB11 /* ChaosRenderer.swift */; };
 		495B86A2222CE524008AEA9F /* ChaosSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B86A1222CE524008AEA9F /* ChaosSaverView.swift */; };
 		495B86CE222CEEF7008AEA9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B86CD222CEEF7008AEA9F /* AppDelegate.swift */; };
 		495B86D0222CEEF7008AEA9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B86CF222CEEF7008AEA9F /* ViewController.swift */; };
@@ -16,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		492B7896222D0290009CAB11 /* ChaosRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaosRenderer.swift; sourceTree = "<group>"; };
 		495B8692222CE4F1008AEA9F /* ChaosSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChaosSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		495B8699222CE4F1008AEA9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		495B86A1222CE524008AEA9F /* ChaosSaverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaosSaverView.swift; sourceTree = "<group>"; };
@@ -69,6 +72,7 @@
 			children = (
 				495B8699222CE4F1008AEA9F /* Info.plist */,
 				495B86A1222CE524008AEA9F /* ChaosSaverView.swift */,
+				492B7896222D0290009CAB11 /* ChaosRenderer.swift */,
 			);
 			path = ChaosSaver;
 			sourceTree = "<group>";
@@ -197,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				495B86A2222CE524008AEA9F /* ChaosSaverView.swift in Sources */,
+				492B7897222D0290009CAB11 /* ChaosRenderer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				495B86D0222CEEF7008AEA9F /* ViewController.swift in Sources */,
+				492B7898222D0638009CAB11 /* ChaosRenderer.swift in Sources */,
 				492B7895222CF660009CAB11 /* ChaosSaverView.swift in Sources */,
 				495B86CE222CEEF7008AEA9F /* AppDelegate.swift in Sources */,
 			);

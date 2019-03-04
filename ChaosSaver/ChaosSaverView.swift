@@ -11,8 +11,11 @@ import ScreenSaver
 
 final class ChaosSaverView: ScreenSaverView {
     
-    var delta = 0.01
-    var blue:Double = 0
+    var index = 0
+    
+    let chaos = ChaosRenderer()
+    
+    var lastImg:CGImage?
     
     override func startAnimation() {
         super.startAnimation()
@@ -33,14 +36,23 @@ final class ChaosSaverView: ScreenSaverView {
             return
         }
         
-        blue += delta
+        var pixels = [ChaosRenderer.PixelData](repeating: ChaosRenderer.PixelData(a: 10, r: 0, g: 0, b: 0), count: 1920*1080)
         
-        if blue < 0 || blue > 1 {
-            delta *= -1
+        index += 1
+        index %= 1920*1080
+        pixels[index] = ChaosRenderer.PixelData(a: 255, r: 255, g: 255, b: 255)
+        
+        
+        let img = chaos.createImageFromPixels(pixels: pixels, width: 1920, height: 1080)
+        
+        //draw previous frame to allow for trails
+        if let lastImg = lastImg {
+            cgContext.draw(lastImg, in: self.bounds)
         }
         
-        cgContext.setFillColor(CGColor(red: 0, green: 0, blue: CGFloat(blue), alpha: 1))
-        cgContext.fill(self.frame as CGRect)
+        cgContext.draw(img!, in: self.bounds)
+        
+        lastImg = cgContext.makeImage() //save current frame to be drawn next frame
     }
     
     override init?(frame: NSRect, isPreview: Bool) {
