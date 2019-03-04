@@ -10,15 +10,18 @@ import AppKit
 import ScreenSaver
 
 final class ChaosSaverView: ScreenSaverView {
+    var params:[Double]!
     
     var index = 0
     
-    let chaos = ChaosRenderer()
+    var renderer:ChaosRenderer?
     
     var lastImg:CGImage?
     
     override func startAnimation() {
         super.startAnimation()
+        
+        renderer = ChaosRenderer(Int(self.bounds.width), Int(self.bounds.height))
     }
     
     override func animateOneFrame() {
@@ -36,23 +39,7 @@ final class ChaosSaverView: ScreenSaverView {
             return
         }
         
-        var pixels = [ChaosRenderer.PixelData](repeating: ChaosRenderer.PixelData(a: 10, r: 0, g: 0, b: 0), count: 1920*1080)
-        
-        index += 1
-        index %= 1920*1080
-        pixels[index] = ChaosRenderer.PixelData(a: 255, r: 255, g: 255, b: 255)
-        
-        
-        let img = chaos.createImageFromPixels(pixels: pixels, width: 1920, height: 1080)
-        
-        //draw previous frame to allow for trails
-        if let lastImg = lastImg {
-            cgContext.draw(lastImg, in: self.bounds)
-        }
-        
-        cgContext.draw(img!, in: self.bounds)
-        
-        lastImg = cgContext.makeImage() //save current frame to be drawn next frame
+        renderer?.render(cgContext, rect)
     }
     
     override init?(frame: NSRect, isPreview: Bool) {
@@ -69,5 +56,13 @@ final class ChaosSaverView: ScreenSaverView {
         animationTimeInterval = 1.0 / 30.0
         
         wantsLayer = true
+    }
+    
+    private func generateParams() -> [Double] {
+        var randomParams: [Double] = []
+        for _ in 0...17 { //TODO: make variable
+            randomParams.append(Double(Int.random(in: -1...1)))
+        }
+        return randomParams
     }
 }
