@@ -7,19 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		495B8696222CE4F1008AEA9F /* ChaosSaverView.h in Headers */ = {isa = PBXBuildFile; fileRef = 495B8695222CE4F1008AEA9F /* ChaosSaverView.h */; };
-		495B8698222CE4F1008AEA9F /* ChaosSaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 495B8697222CE4F1008AEA9F /* ChaosSaverView.m */; };
+		492B7895222CF660009CAB11 /* ChaosSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B86A1222CE524008AEA9F /* ChaosSaverView.swift */; };
+		495B86A2222CE524008AEA9F /* ChaosSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B86A1222CE524008AEA9F /* ChaosSaverView.swift */; };
+		495B86CE222CEEF7008AEA9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B86CD222CEEF7008AEA9F /* AppDelegate.swift */; };
+		495B86D0222CEEF7008AEA9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B86CF222CEEF7008AEA9F /* ViewController.swift */; };
+		495B86D2222CEEF8008AEA9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495B86D1222CEEF8008AEA9F /* Assets.xcassets */; };
+		495B86D5222CEEF8008AEA9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495B86D3222CEEF8008AEA9F /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		495B8692222CE4F1008AEA9F /* ChaosSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChaosSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
-		495B8695222CE4F1008AEA9F /* ChaosSaverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChaosSaverView.h; sourceTree = "<group>"; };
-		495B8697222CE4F1008AEA9F /* ChaosSaverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChaosSaverView.m; sourceTree = "<group>"; };
 		495B8699222CE4F1008AEA9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		495B86A1222CE524008AEA9F /* ChaosSaverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaosSaverView.swift; sourceTree = "<group>"; };
+		495B86CB222CEEF7008AEA9F /* ChaosSaverApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChaosSaverApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		495B86CD222CEEF7008AEA9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		495B86CF222CEEF7008AEA9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		495B86D1222CEEF8008AEA9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		495B86D4222CEEF8008AEA9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		495B86D6222CEEF8008AEA9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		495B86D7222CEEF8008AEA9F /* ChaosSaverApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChaosSaverApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		495B868F222CE4F1008AEA9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		495B86C8222CEEF7008AEA9F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,6 +50,7 @@
 			isa = PBXGroup;
 			children = (
 				495B8694222CE4F1008AEA9F /* ChaosSaver */,
+				495B86CC222CEEF7008AEA9F /* ChaosSaverApp */,
 				495B8693222CE4F1008AEA9F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				495B8692222CE4F1008AEA9F /* ChaosSaver.saver */,
+				495B86CB222CEEF7008AEA9F /* ChaosSaverApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,11 +67,23 @@
 		495B8694222CE4F1008AEA9F /* ChaosSaver */ = {
 			isa = PBXGroup;
 			children = (
-				495B8695222CE4F1008AEA9F /* ChaosSaverView.h */,
-				495B8697222CE4F1008AEA9F /* ChaosSaverView.m */,
 				495B8699222CE4F1008AEA9F /* Info.plist */,
+				495B86A1222CE524008AEA9F /* ChaosSaverView.swift */,
 			);
 			path = ChaosSaver;
+			sourceTree = "<group>";
+		};
+		495B86CC222CEEF7008AEA9F /* ChaosSaverApp */ = {
+			isa = PBXGroup;
+			children = (
+				495B86CD222CEEF7008AEA9F /* AppDelegate.swift */,
+				495B86CF222CEEF7008AEA9F /* ViewController.swift */,
+				495B86D1222CEEF8008AEA9F /* Assets.xcassets */,
+				495B86D3222CEEF8008AEA9F /* Main.storyboard */,
+				495B86D6222CEEF8008AEA9F /* Info.plist */,
+				495B86D7222CEEF8008AEA9F /* ChaosSaverApp.entitlements */,
+			);
+			path = ChaosSaverApp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -62,7 +93,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				495B8696222CE4F1008AEA9F /* ChaosSaverView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,16 +117,38 @@
 			productReference = 495B8692222CE4F1008AEA9F /* ChaosSaver.saver */;
 			productType = "com.apple.product-type.bundle";
 		};
+		495B86CA222CEEF7008AEA9F /* ChaosSaverApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 495B86D8222CEEF8008AEA9F /* Build configuration list for PBXNativeTarget "ChaosSaverApp" */;
+			buildPhases = (
+				495B86C7222CEEF7008AEA9F /* Sources */,
+				495B86C8222CEEF7008AEA9F /* Frameworks */,
+				495B86C9222CEEF7008AEA9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChaosSaverApp;
+			productName = ChaosSaverApp;
+			productReference = 495B86CB222CEEF7008AEA9F /* ChaosSaverApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		495B8689222CE4F1008AEA9F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Andrew Afflitto";
 				TargetAttributes = {
 					495B8691222CE4F1008AEA9F = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+					};
+					495B86CA222CEEF7008AEA9F = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
@@ -107,6 +159,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 495B8688222CE4F1008AEA9F;
 			productRefGroup = 495B8693222CE4F1008AEA9F /* Products */;
@@ -114,6 +167,7 @@
 			projectRoot = "";
 			targets = (
 				495B8691222CE4F1008AEA9F /* ChaosSaver */,
+				495B86CA222CEEF7008AEA9F /* ChaosSaverApp */,
 			);
 		};
 /* End PBXProject section */
@@ -126,6 +180,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		495B86C9222CEEF7008AEA9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				495B86D2222CEEF8008AEA9F /* Assets.xcassets in Resources */,
+				495B86D5222CEEF8008AEA9F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -133,11 +196,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				495B8698222CE4F1008AEA9F /* ChaosSaverView.m in Sources */,
+				495B86A2222CE524008AEA9F /* ChaosSaverView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		495B86C7222CEEF7008AEA9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				495B86D0222CEEF7008AEA9F /* ViewController.swift in Sources */,
+				492B7895222CF660009CAB11 /* ChaosSaverView.swift in Sources */,
+				495B86CE222CEEF7008AEA9F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		495B86D3222CEEF8008AEA9F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				495B86D4222CEEF8008AEA9F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		495B869A222CE4F1008AEA9F /* Debug */ = {
@@ -254,13 +338,23 @@
 		495B869D222CE4F1008AEA9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9VG9LQ593P;
 				INFOPLIST_FILE = ChaosSaver/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.afflitto.ChaosSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Debug;
@@ -268,14 +362,65 @@
 		495B869E222CE4F1008AEA9F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9VG9LQ593P;
 				INFOPLIST_FILE = ChaosSaver/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.afflitto.ChaosSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				WRAPPER_EXTENSION = saver;
+			};
+			name = Release;
+		};
+		495B86D9222CEEF8008AEA9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ChaosSaverApp/ChaosSaverApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9VG9LQ593P;
+				INFOPLIST_FILE = ChaosSaverApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tech.afflitto.ChaosSaverApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		495B86DA222CEEF8008AEA9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ChaosSaverApp/ChaosSaverApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9VG9LQ593P;
+				INFOPLIST_FILE = ChaosSaverApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tech.afflitto.ChaosSaverApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -296,6 +441,15 @@
 			buildConfigurations = (
 				495B869D222CE4F1008AEA9F /* Debug */,
 				495B869E222CE4F1008AEA9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		495B86D8222CEEF8008AEA9F /* Build configuration list for PBXNativeTarget "ChaosSaverApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				495B86D9222CEEF8008AEA9F /* Debug */,
+				495B86DA222CEEF8008AEA9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
