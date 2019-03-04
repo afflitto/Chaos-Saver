@@ -11,21 +11,67 @@ import ScreenSaver
 
 final class ChaosSaverView: ScreenSaverView {
     var params:[Double]!
-    
-    var index = 0
-    
     var renderer:ChaosRenderer?
-    
-    var lastImg:CGImage?
+
+    var t:Double = -9.0
+    var timeDirection:Double = 1
     
     override func startAnimation() {
         super.startAnimation()
         
-        renderer = ChaosRenderer(Int(self.bounds.width), Int(self.bounds.height))
+        //renderer = ChaosRenderer(Int(self.bounds.width), Int(self.bounds.height))
+        //Maybe need to set frame buffer size depending on if it's a preview
+        renderer = ChaosRenderer(1600, 900)
     }
     
     override func animateOneFrame() {
         super.animateOneFrame()
+        
+        if t > 9.0 || t < -9.0 {
+            timeDirection *= -1.0
+        }
+        
+        for _ in 0..<100 { //steps per frame
+            var x = t
+            var y = t
+            
+            for _ in 0..<600 { //iterations
+                let xx = x * x
+                let yy = y * y
+                let tt = t * t
+                let xy = x * y
+                let xt = x * t
+                let yt = y * t
+                
+                //calculate as sub expressions to prevent expression too complex swift error
+                var nx  = xx * params[ 0]
+                nx += yy * params[ 1]
+                nx += tt * params[ 2]
+                nx += xy * params[ 3]
+                nx += xt * params[ 4]
+                nx += yt * params[ 5]
+                nx +=  x * params[ 6]
+                nx +=  y * params[ 7]
+                nx +=  t * params[ 8]
+                
+                var ny  = xx * params[ 9]
+                ny += yy * params[10]
+                ny += tt * params[11]
+                ny += xy * params[12]
+                ny += xt * params[13]
+                ny += yt * params[14]
+                ny +=  x * params[15]
+                ny +=  y * params[16]
+                ny +=  t * params[17]
+                
+                x = nx
+                y = ny
+                
+                renderer?.drawPoint(x, y, ChaosRenderer.PixelData(a: 255, r: 255, g: 255, b: 255))
+            }
+            
+            t += 1e-3 * timeDirection
+        }
         
         //set needsDisplay to true to do drawing in draw()
         needsDisplay = true
@@ -54,8 +100,9 @@ final class ChaosSaverView: ScreenSaverView {
     
     private func initialize() {
         animationTimeInterval = 1.0 / 30.0
-        
         wantsLayer = true
+        
+        params = generateParams()
     }
     
     private func generateParams() -> [Double] {

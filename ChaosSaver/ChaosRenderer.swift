@@ -10,13 +10,13 @@ import Foundation
 
 class ChaosRenderer {
     //clearing color
-    static let backgroundColor = PixelData(a: 20, r: 255, g: 0, b: 0)
+    static let backgroundColor = PixelData(a: 10, r: 50, g: 50, b: 50)
     
     //size of frame buffer
     let width:Int!
     let height:Int!
     
-    let frameBuffer:[PixelData]!
+    var frameBuffer:[PixelData]!
     var previousFrame:CGImage?
     
     struct PixelData {
@@ -33,7 +33,20 @@ class ChaosRenderer {
         self.frameBuffer = [PixelData](repeating: ChaosRenderer.backgroundColor, count: width * height)
     }
     
+    func drawPoint(_ x:Double, _ y:Double, _ color:PixelData) {
+        if x < Double(Int.max) && x > Double(Int.min) && y < Double(Int.max) && y > Double(Int.min) {
+            let x = Int(x * 0.5) + width/2
+            let y = Int(y * 0.5) + height/2
+            
+            if x > 0 && Int(x) < width && y > 0 && Int(y) < height {
+                frameBuffer[y * width + x] = color
+            }
+        }
+    }
+    
     func render(_ cgContext:CGContext, _ rect:CGRect) {
+        cgContext.setShouldAntialias(true)
+        
         //create CGImage from frame buffer
         let img = createImageFromPixels(pixels: frameBuffer, width: width, height: height)
         
@@ -47,6 +60,9 @@ class ChaosRenderer {
         
         //save current frame to be drawn next frame
         previousFrame = cgContext.makeImage()
+        
+        //clear buffer
+        self.frameBuffer = [PixelData](repeating: ChaosRenderer.backgroundColor, count: width * height)
     }
     
     private func createImageFromPixels(pixels: [PixelData], width:Int, height:Int) -> CGImage? {
