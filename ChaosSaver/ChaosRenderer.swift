@@ -10,7 +10,7 @@ import Foundation
 
 class ChaosRenderer {
     //clearing color
-    static let backgroundColor = PixelData(a: 63, r: 50, g: 50, b: 50)
+    static let backgroundColor = PixelData(a: 31, r: 0, g: 0, b: 0)
     
     //size of frame buffer
     let width:Int!
@@ -47,7 +47,7 @@ class ChaosRenderer {
     }
     
     func render(_ cgContext:CGContext, _ rect:CGRect) {
-        cgContext.setShouldAntialias(true)
+        cgContext.setShouldAntialias(false)
         
         //create CGImage from frame buffer
         let img = createImageFromPixels(pixels: frameBuffer, width: width, height: height)
@@ -82,7 +82,7 @@ class ChaosRenderer {
             bitmapInfo: CGBitmapInfo(rawValue: CGImageAlphaInfo.first.rawValue),
             provider: provider!,
             decode: nil,
-            shouldInterpolate: true,
+            shouldInterpolate: false,
             intent: CGColorRenderingIntent.defaultIntent
         )
     }

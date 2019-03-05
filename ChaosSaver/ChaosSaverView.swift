@@ -10,18 +10,21 @@ import AppKit
 import ScreenSaver
 
 final class ChaosSaverView: ScreenSaverView {
+    let shouldDrawFps = false
+    
     var params:[Double]!
     var renderer:ChaosRenderer?
 
     var t:Double = -3.0
-    var timeDirection:Double = 1
+    
+    var pointColors:[ChaosRenderer.PixelData] = []
     
     override func startAnimation() {
         super.startAnimation()
         
         //renderer = ChaosRenderer(Int(self.bounds.width), Int(self.bounds.height))
         //Maybe need to set frame buffer size depending on if it's a preview
-        renderer = ChaosRenderer(1600, 900)
+        renderer = ChaosRenderer(1024, 576)
     }
     
     override func animateOneFrame() {
@@ -32,13 +35,13 @@ final class ChaosSaverView: ScreenSaverView {
             params = generateParams()
         }
         
-        for _ in 0..<100 { //steps per frame
+        for _ in 0..<200 { //steps per frame
             var x = t
             var y = t
             
             var wasOnScreen = false
             
-            for _ in 0..<600 { //iterations
+            for i in 0..<300 { //iterations
                 let xx = x * x
                 let yy = y * y
                 let tt = t * t
@@ -70,14 +73,14 @@ final class ChaosSaverView: ScreenSaverView {
                 x = nx
                 y = ny
                 
-                renderer!.drawPoint(x, y, ChaosRenderer.PixelData(a: 255, r: 255, g: 255, b: 255)) //wasOnScreen = wasOnScreen || 
+                wasOnScreen = renderer!.drawPoint(x, y, pointColors[i]) || wasOnScreen
             }
             
-//            if !wasOnScreen {
-//                t += 0.001 * timeDirection
-//            } else {
-                t += 3e-4 * timeDirection
-            //}
+            if !wasOnScreen {
+                t += 0.001
+            } else {
+                t += 5e-5
+            }
         }
         
         //set needsDisplay to true to do drawing in draw()
@@ -87,6 +90,8 @@ final class ChaosSaverView: ScreenSaverView {
     override func draw(_ rect: NSRect) {
         super.draw(rect)
         
+        let startTime = DispatchTime.now()
+        
         guard let cgContext = NSGraphicsContext.current?.cgContext else {
             print("failed to get cgContext!")
             return
@@ -94,10 +99,19 @@ final class ChaosSaverView: ScreenSaverView {
         
         renderer?.render(cgContext, rect)
         
-        NSColor.white.setFill()
-        //NSMakeRect(0, 1050, 1920, 30).fill()
-        let timeString = "\(t)" as NSString
-        //timeString.draw(at: NSPoint(x: 20, y: 1060), withAttributes: nil)
+        let endTime = DispatchTime.now()
+        
+        if shouldDrawFps {
+            NSColor.white.setFill()
+            NSMakeRect(0, 1050, 1920, 30).fill()
+            let timeString = "t=\(t)" as NSString
+            timeString.draw(at: NSPoint(x: 20, y: 1060), withAttributes: nil)
+            
+            let dt = endTime.uptimeNanoseconds - startTime.uptimeNanoseconds
+            let fps = UInt64(1e9) / dt
+            let fpsString = "\(fps)fps" as NSString
+            fpsString.draw(at: NSPoint(x: 1880, y: 1060), withAttributes: nil)
+        }
     }
     
     override init?(frame: NSRect, isPreview: Bool) {
@@ -115,6 +129,10 @@ final class ChaosSaverView: ScreenSaverView {
         wantsLayer = true
         
         params = generateParams()
+        
+        for i in 0..<300 {
+            pointColors.append(randomColor(i))
+        }
     }
     
     private func generateParams() -> [Double] {
@@ -123,5 +141,14 @@ final class ChaosSaverView: ScreenSaverView {
             randomParams.append(Double(Int.random(in: -1...1)))
         }
         return randomParams
+    }
+    
+    private func randomColor(_ index:Int) -> ChaosRenderer.PixelData {
+        let i = index + 1
+        let r = UInt8((i * 11909) % 256)
+        let g = UInt8((i * 52973) % 256)
+        let b = UInt8((i * 44111) % 256)
+        
+        return ChaosRenderer.PixelData(a: 255, r: r, g: g, b: b)
     }
 }
