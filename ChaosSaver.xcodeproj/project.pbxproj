@@ -17,6 +17,16 @@
 		495B86D5222CEEF8008AEA9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495B86D3222CEEF8008AEA9F /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		492B7899222E239A009CAB11 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 495B8689222CE4F1008AEA9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 495B8691222CE4F1008AEA9F;
+			remoteInfo = ChaosSaver;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		492B7896222D0290009CAB11 /* ChaosRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaosRenderer.swift; sourceTree = "<group>"; };
 		495B8692222CE4F1008AEA9F /* ChaosSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChaosSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +142,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				492B789A222E239A009CAB11 /* PBXTargetDependency */,
 			);
 			name = ChaosSaverApp;
 			productName = ChaosSaverApp;
@@ -217,6 +228,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		492B789A222E239A009CAB11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 495B8691222CE4F1008AEA9F /* ChaosSaver */;
+			targetProxy = 492B7899222E239A009CAB11 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		495B86D3222CEEF8008AEA9F /* Main.storyboard */ = {
