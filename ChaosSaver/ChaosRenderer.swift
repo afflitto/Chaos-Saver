@@ -35,8 +35,8 @@ class ChaosRenderer {
     
     func drawPoint(_ x:Double, _ y:Double, _ color:PixelData) -> (Bool) {
         if x * 250 < Double(Int.max) && x * 250 > Double(Int.min) && y * 250 < Double(Int.max) && y * 250 > Double(Int.min) {
-            let x = Int(x * 250) + width/2
-            let y = Int(y * 250) + height/2
+            let x = Int(x * 125) + width/2
+            let y = Int(y * 125) + height/2
             
             if x > 0 && x < width && y > 0 && y < height {
                 frameBuffer[y * width + x] = color
