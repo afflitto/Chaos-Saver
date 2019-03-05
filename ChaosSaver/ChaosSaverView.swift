@@ -24,7 +24,7 @@ final class ChaosSaverView: ScreenSaverView {
         
         //renderer = ChaosRenderer(Int(self.bounds.width), Int(self.bounds.height))
         //Maybe need to set frame buffer size depending on if it's a preview
-        renderer = ChaosRenderer(1024, 576)
+        renderer = ChaosRenderer(1920,1080)//(1024, 576)
     }
     
     override func animateOneFrame() {
